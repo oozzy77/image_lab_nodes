@@ -106,15 +106,16 @@ def stack_images(
     combined.paste(bottom, (0, 0))
 
     # Calculate the position for the top image
-    if position == "center":
-        x = (bottom.width - top.width) // 2
-        y = (bottom.height - top.height) // 2
-    elif position == "top":
+    # default position "center":
+    x = (bottom.width - top.width) // 2
+    y = (bottom.height - top.height) // 2
+    if position == "top":
         x = (bottom.width - top.width) // 2
         y = 0
     elif position == "bottom":
         x = (bottom.width - top.width) // 2
         y = bottom.height - top.height
+
 
     # Paste the top image onto the combined image
     combined.paste(top, (x, y), top)  # The third argument is the mask
